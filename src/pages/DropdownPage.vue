@@ -1,33 +1,3 @@
-<template>
-  <div>
-    <div class="header">
-      <pre>{{ selected }}</pre>
-      <div class="dropdown">
-        <!-- 1 прокидывем сам массив объектов. 2 объект selected. 3 уникальный ID. 4 уникальный title (справа эти значения и подставляем) -->
-        <dropdown
-          ref="dropdown"
-          :list="list"
-          :selected="selected"
-          trackBy="id"
-          title='title'
-          @change="value => selected = value"
-        />
-      </div>
-    </div>
-    <div class="body">
-      <pre>{{ selected2 }}</pre>
-      <div class="dropdown">
-        <dropdown
-          ref="dropdown2"
-          :list="list2"
-          :selected="selected2"
-          @change="value => selected2 = value"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 import Dropdown from '@/components/Dropdown'
 
@@ -70,3 +40,33 @@ export default {
     margin:0 auto;
   }
 </style>
+
+<template>
+  <div>
+    <div class="header">
+      <pre>{{ selected }}</pre>
+      <div class="dropdown">
+        <!-- 1 прокидывем сам массив объектов. 2 объект selected. 3 уникальный ID. 4 уникальный title (справа эти значения и подставляем) -->
+        <dropdown
+          ref="dropdown"
+          :list="list"
+          :selected="selected"
+          trackBy="id"
+          title='title'
+          @change="value => selected = value"
+        />
+      </div>
+    </div>
+    <div class="body">
+      <pre>{{ selected2 }}</pre>
+      <div class="dropdown">
+        <dropdown
+          ref="dropdown2"
+          :list="list2"
+          :selected="selected2"
+          @change="value => selected2 = value"
+        />
+      </div>
+    </div>
+  </div>
+</template>

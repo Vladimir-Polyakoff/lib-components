@@ -1,19 +1,3 @@
-<template>
-  <div class="dropdown">
-    <div class="dropdown__title"
-    @click.stop="showList = !showList"
-  >{{ selectedValue }}</div>
-
-    <div class="dropdown__list"
-    v-if="showList">
-      <div class="dropdown__item" v-for="item in dropdownList" :key="item[trackBy]"
-      @click="change(item)">
-        {{ item[title] }}
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
 
 export default {
@@ -90,39 +74,55 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .dropdown {
     min-width: 170px;
     display: inline-block;
     margin: 0 auto;
-  }
-  .dropdown__list, .dropdown__title {
-    border: 1px solid black;
-    border-top:none;
-    width: 100%;
-    text-align: start;
-    padding: 4px 20px;
-  }
-  .dropdown__list {
-    height: 100px;
-    overflow: hidden;
-    overflow-y: auto;
-  }
-  .dropdown__item {
-    padding: 4px 20px;
-    cursor: pointer;
-  }
-  .dropdown__item:hover {
-    color: blue;
-  }
-  .dropdown__title {
-    border-top: 1px solid black;
-    padding: 4px 20px;
-    cursor: pointer;
-    background: #d8e6f3;
-    font-size: 18px;
-    font-weight: 700;
-    border-width: 2px;
+    &__list, &__title {
+      border: 1px solid black;
+      border-top:none;
+      width: 100%;
+      text-align: start;
+      padding: 4px 20px;
+    }
+    &__list {
+      height: 100px;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+    &__item {
+      padding: 4px 20px;
+      cursor: pointer;
+      &:hover {
+        color: blue;
+      }
+    }
+    &__title {
+      border-top: 1px solid black;
+      padding: 4px 20px;
+      cursor: pointer;
+      background: #d8e6f3;
+      font-size: 18px;
+      font-weight: 700;
+      border-width: 2px;
+    }
   }
 
 </style>
+
+<template>
+  <div class="dropdown">
+    <div class="dropdown__title"
+    @click.stop="showList = !showList"
+  >{{ selectedValue }}</div>
+
+    <div class="dropdown__list"
+    v-if="showList">
+      <div class="dropdown__item" v-for="item in dropdownList" :key="item[trackBy]"
+      @click="change(item)">
+        {{ item[title] }}
+      </div>
+    </div>
+  </div>
+</template>

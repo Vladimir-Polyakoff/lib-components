@@ -1,32 +1,3 @@
-<template>
-  <div id="fields">
-    <!-- <pre>{{ inputValue }}</pre>  -->
-    <div class="input-value">{{ inputValue }}</div>
-    <!-- :value="inputValue" типа пропс, v-model привязывется к пропсу -->
-    <!-- @input по дефолту срабатывает при изменеие Вэлью -->
-    <Field
-    ref="Field"
-    v-model="inputValue"
-    :additionalStyles="['color:blue;', 'font-size: 20px;']"
-    placeholder="placeholder"
-    id="Id"
-    label="label"
-    />
-    <hr>
-    <Field
-    v-for="(input, index) in inputs" :key="input.id"
-    :id="input.id"
-    :label="input.label"
-    :value="input.value"
-    @input="value => setFieldValue(value, index)"
-    />
-    <button @click="addInput">Добавит input</button>
-    <!-- :additionalStyles="{color: 'blue', fontSize: '50px'}"  -->
-    <!-- additionalStyles="color:blue; font-size:50px;"-->
-  </div>
-</template>
-
-
 <script>
 import Field from "@/components/Field"
 
@@ -92,3 +63,26 @@ button {
   border: none;
 }
 </style>
+
+<template>
+  <div id="fields">
+    <div class="input-value">{{ inputValue }}</div>
+    <Field
+    ref="Field"
+    v-model="inputValue"
+    :additionalStyles="['color:blue;', 'font-size: 20px;']"
+    placeholder="placeholder"
+    id="Id"
+    label="label"
+    />
+    <hr>
+    <Field
+    v-for="(input, index) in inputs" :key="input.id"
+    :id="input.id"
+    :label="input.label"
+    :value="input.value"
+    @input="value => setFieldValue(value, index)"
+    />
+    <button @click="addInput">Добавит input</button>
+  </div>
+</template>

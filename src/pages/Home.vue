@@ -1,9 +1,3 @@
-<template>
-  <div class="loader">
-    <h1>HOME</h1>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'TheHome'
@@ -59,3 +53,9 @@ export default {
     }
   }
 </style>
+
+<template>
+  <div class="loader">
+    <h1>HOME</h1>
+  </div>
+</template>

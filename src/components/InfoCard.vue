@@ -1,12 +1,3 @@
-<template>
-  <div class="card">
-    <CirclePoint class="circle" :point="number"></CirclePoint>
-    <div class="title" v-if="card.title" v-html="card.title"></div>
-    <div class="description" v-if="card.description" >{{ card.description }}</div>
-    <button v-if="card.button" :disabled="card.button.disabled">{{ card.button.title }}</button>
-  </div>
-</template>
-
 <script>
 import CirclePoint from "@/components/CirclePoint"
 
@@ -30,7 +21,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .card {
     position: relative;
     padding: 40px 24px 24px;
@@ -69,17 +60,26 @@ export default {
     font-size: 16px;
     font-weight: 600;
     color: #000;
-  }
-  button::before {
-    content: '✓';
-    position: absolute;
-    left: 10px;
-    top: 8px;
-    width: 20px;
-    height: 20px;
-    color: green ;
-    margin-right: 6px;
-    border: 1px solid green;
-    border-radius: 50%;
+      &::before {
+      content: '✓';
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      color: green ;
+      margin-right: 6px;
+      border: 1px solid green;
+      border-radius: 50%;
+    }
   }
 </style>
+
+<template>
+  <div class="card">
+    <CirclePoint class="circle" :point="number"></CirclePoint>
+    <div class="title" v-if="card.title" v-html="card.title"></div>
+    <div class="description" v-if="card.description" >{{ card.description }}</div>
+    <button v-if="card.button" :disabled="card.button.disabled">{{ card.button.title }}</button>
+  </div>
+</template>

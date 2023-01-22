@@ -1,18 +1,3 @@
-<template>
-  <div class="welcome">
-    <div class="title">Как работать c модулем</div>
-    <div class="description">Финансовый учет - это удобный инструмент, который поможет контролировать движение средств и увеличить прибыль. Вся статистика по финансовым операцияи отражена в виде нагядных отчетов</div>
-    <div class="list">
-      <InfoCard
-      v-for="(item, index) in list"
-      :key="index"
-      :number="index + 1"
-      :card="item"
-      />
-    </div>
-  </div>
-</template>
-
 <script>
 import InfoCard from "@/components/InfoCard.vue"
 
@@ -85,3 +70,18 @@ export default {
     color: rgba(0, 0, 0, 0.606);
   }
 </style>
+
+<template>
+  <div class="welcome">
+    <div class="title">Как работать c модулем</div>
+    <div class="description">Финансовый учет - это удобный инструмент, который поможет контролировать движение средств и увеличить прибыль. Вся статистика по финансовым операцияи отражена в виде нагядных отчетов</div>
+    <div class="list">
+      <InfoCard
+      v-for="(item, index) in list"
+      :key="index"
+      :number="index + 1"
+      :card="item"
+      />
+    </div>
+  </div>
+</template>
