@@ -36,6 +36,10 @@ export default {
         {
           title: 'Таблица',
           path: '/table-page'
+        },
+        {
+          title: 'Мультиселект Теги',
+          path: '/multiselect-tags'
         }
       ]
     }

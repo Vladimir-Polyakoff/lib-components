@@ -28,6 +28,11 @@ const routes = [
     path: '/dropdown-page',
     name: 'dropdown-page',
     component:() => import('@/pages/DropdownPage.vue')
+  },
+  {
+    path: '/multiselect-tags',
+    name: 'multiselect-tags',
+    component:() => import('@/pages/MultiselectTagsPage.vue')
   }
 ]
 
