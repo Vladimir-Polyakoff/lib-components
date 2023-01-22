@@ -76,16 +76,27 @@ export default {
       padding: 4px;
       background-color: rgba(0, 0, 255, 0.15);
       margin-right: 8px;
-        span{
-          background: transparent;
-          transform: rotate(45deg);
-          margin-left: 8px;
-          margin-right: 0px;
-          display: inline-block;
-          &:hover {
-            color: white;
+      span{
+        background: transparent;
+        transform: rotate(45deg);
+        margin-left: 8px;
+        margin-right: 0px;
+        display: inline-block;
+        &:hover {
+          color: white;
+          scale: 1.1;
+          animation: close 1s linear;
+
+          @keyframes close {
+            0% {
+              transform: rotate(45deg);
+            }
+            100% {
+              transform: rotate(225deg);
+            }
           }
         }
+      }
     }
     &__list {
       max-height: 100px;
@@ -97,9 +108,11 @@ export default {
       padding-top: 4px;
       &.selected:hover{
         color: red;
+        font-weight: 600;
       }
       &:hover {
         color: blue;
+        font-weight: 600;
       }
     }
     &__title {
@@ -110,10 +123,12 @@ export default {
       font-size: 18px;
       font-weight: 700;
       border-width: 2px;
+      border-radius: 10px;
     }
   }
   .selected {
     color: green;
+    font-weight: 600;
   }
 </style>
 

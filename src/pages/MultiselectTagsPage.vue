@@ -13,15 +13,15 @@ export default {
       list: [
         {
           id: 1,
-          title: 'Name'
+          title: 'JavaScript'
         },
         {
           id: 2,
-          title: 'Username'
+          title: 'Vue js'
         },
         {
           id: 3,
-          title: 'Email'
+          title: 'html/css'
         }
       ],
       list2: ['all', 'Name', 'Username', 'Email'],
@@ -40,12 +40,21 @@ export default {
   .multiselect-tags {
     margin:0 auto;
   }
+  .pre {
+    padding: 10px;
+    text-align: center;
+    margin-left: 34px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgb(127, 125, 125);
+  }
 </style>
 
 <template>
   <div>
     <div class="header">
-      <pre>{{ selectedList }}</pre>
+      <div class="pre">{{ selectedList }}</div>
       <div class="multiselect-tags">
         <MultiselectTags
           ref="MultiselectTags"
