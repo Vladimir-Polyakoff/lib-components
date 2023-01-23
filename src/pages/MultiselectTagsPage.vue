@@ -24,13 +24,15 @@ export default {
           title: 'html/css'
         }
       ],
-      list2: ['all', 'Name', 'Username', 'Email'],
-      selected2: '',
+      list2: ['Name', 'Username', 'Email'],
     }
   },
   methods: {
-    deleteSelected (selected) {
-      this.selectedList = this.selectedList.filter(({ id }) => id !== selected.id)
+    // deleteSelected (deleted) {
+    //   this.selectedList = this.selectedList.filter(({ id }) => id !== deleted.id)
+    // }
+    deleteSelected (deleted) {
+      this.selectedList = this.selectedList.filter(item => item !== deleted)
     }
   }
 }
@@ -44,7 +46,7 @@ export default {
       <div class="multiselect-tags">
         <MultiselectTags
           ref="MultiselectTags"
-          :list="list"
+          :list="list2"
           :selectedList="selectedList"
           trackBy="id"
           title='title'

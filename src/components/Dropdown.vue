@@ -39,14 +39,14 @@ export default {
       }
     },
 
-    isChildeItemTypeObject () {
+    isChildItemTypeObject () {
       return typeof this.list[0] === 'object'
     },
 
     dropdownList () {
-      if (!this.isChildeItemTypeObject) {
-        return this.list.map((title, index) => ({
-          title, id: index + 1 
+      if (!this.isChildItemTypeObject) {
+        return this.list.map((el, index) => ({
+          title: el, id: index + 1 
         }))
       }
       return this.list
@@ -64,7 +64,7 @@ export default {
     change (selected) {
       this.showList = false
       
-      this.$emit('change', this.isChildeItemTypeObject ? selected : selected.title)
+      this.$emit('change', this.isChildItemTypeObject ? selected : selected.title)
     },
 
     bodyClick () {

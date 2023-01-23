@@ -40,7 +40,6 @@ export default {
     <div class="header">
       <pre>{{ selected }}</pre>
       <div class="dropdown">
-        <!-- 1 прокидывем сам массив объектов. 2 объект selected. 3 уникальный ID. 4 уникальный title (справа эти значения и подставляем) -->
         <dropdown
           ref="dropdown"
           :list="list"

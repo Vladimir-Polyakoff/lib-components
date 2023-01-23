@@ -29,6 +29,12 @@ export default {
     }
   },
 
+  computed: {
+    isChildTypeObject () {
+      return typeof this.list[0] === 'object'
+    },
+  },
+
   watch: {
     showList (v) {
       v && this.$nextTick(() => this.$refs.addTag.focus())
@@ -47,9 +53,12 @@ export default {
       this.showList = false
 
       let updatedList = []
-
+      
       if (this.selectedList.includes(selected)) {
-        updatedList = this.selectedList.filter(s => s[this.trackBy] !== selected[this.trackBy])
+        updatedList = this.selectedList.filter(item => this.isChildTypeObject 
+          ? item[this.trackBy] !== selected[this.trackBy]
+          : item !== selected
+        )
       } else {
         updatedList = [...this.selectedList, selected]
       }
@@ -67,16 +76,18 @@ export default {
     addTag () {
       if (!this.newTag) { return }
 
-      const newTag = {
-        [this.trackBy]: new Date().getTime(),
-        [this.title]: this.newTag
-      }
-
-      this.$emit('change', [...this.selectedList, newTag])
+      this.$emit('change', [...this.selectedList, this.isChildTypeObject 
+        ? {
+            [this.trackBy]: new Date().getTime(),
+            [this.title]: this.newTag
+          }
+        : this.newTag]
+      )
 
       this.newTag = ''
-      
+
       this.bodyClick()
+      
     }
   }
 }
@@ -87,9 +98,9 @@ export default {
     <div class="multiselect-tags__title"
     @click.stop="showList = !showList">
       <div v-if="selectedList.length">
-        <span @click.stop v-for="selected in selectedList"
-        :key="selected[trackBy]">
-        {{ selected[title] }}
+        <span @click.stop v-for="(selected, index) in selectedList"
+        :key="index + ( selected[title] || selected)">
+        {{ selected[title] || selected }}
         <span @click.stop="$emit('delete', selected)">+</span>
         </span>
       </div>
@@ -107,11 +118,11 @@ export default {
     <div class="multiselect-tags__list"
     v-if="showList">
       <div class="multiselect-tags__item"
-      v-for="item in list"
-      :key="item[trackBy]"
+      v-for="(item, index) in list"
+      :key="index + (item[title] || item)"
       :class="{'selected': isSelected(item) }"
       @click="change(item)">
-      {{ item[title] }}
+      {{ item[title] || item }}
       </div>
     </div>
   </div>
