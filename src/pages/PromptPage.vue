@@ -6,6 +6,7 @@ export default {
   components: {
     Prompt
   },
+
   data () {
     return {
       result: '',
@@ -13,6 +14,7 @@ export default {
       error: ''
     }
   },
+
   watch: {
     question (v) {
       if (v && this.error) {
@@ -20,6 +22,7 @@ export default {
       }
     }
   },
+
   methods: {
     send () {
       if (!this.question) {
@@ -28,7 +31,6 @@ export default {
         return
       }
       this.$refs.Prompt.show(this.question)
-
     }
   }
 }
@@ -42,7 +44,8 @@ export default {
     ></prompt>
     <div
       v-if="error"
-      style="color:red">
+      style="color:red"
+    >
       {{ error }}
     </div>
     <div>

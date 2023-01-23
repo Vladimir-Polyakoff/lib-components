@@ -22,6 +22,7 @@ export default {
       default: 'title'
     }
   },
+
   data () {
     return {
       showList: false,
@@ -109,9 +110,12 @@ export default {
     <div class="multiselect-tags__title"
     @click.stop="showList = !showList">
       <div v-if="selectedList.length">
-        <span @click.stop v-for="(selected, index) in selectedList"
-        :key="index + ( selected[title] || selected)">
-        {{ selected[title] || selected }}
+        <span
+          @click.stop
+          v-for="(selected, index) in selectedList"
+          :key="index + ( selected[title] || selected)"
+        >
+          {{ selected[title] || selected }}
         <span @click.stop="$emit('delete', selected)">+</span>
         </span>
       </div>
@@ -126,23 +130,24 @@ export default {
       @keypress.enter="addTag"
       > -->
       <input
-      ref="addTag"
-      v-if="showList"
-      type="text"
-      placeholder="введите Tag"
-      @click.stop
-      @keypress.enter="$event.target.value.trim() && addTag($event.target.value.trim())"
+        ref="addTag"
+        v-if="showList"
+        type="text"
+        placeholder="введите Tag"
+        @click.stop
+        @keypress.enter="$event.target.value.trim() && addTag($event.target.value.trim())"
       >
     </div>
 
     <div class="multiselect-tags__list"
-    v-if="showList">
+      v-if="showList">
       <div class="multiselect-tags__item"
-      v-for="(item, index) in list"
-      :key="index + (item[title] || item)"
-      :class="{'selected': isSelected(item) }"
-      @click="change(item)">
-      {{ item[title] || item }}
+        v-for="(item, index) in list"
+        :key="index + (item[title] || item)"
+        :class="{'selected': isSelected(item) }"
+        @click="change(item)"
+      >
+        {{ item[title] || item }}
       </div>
     </div>
   </div>

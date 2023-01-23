@@ -12,6 +12,7 @@ export default {
         required: true
       }
     },
+
   data () {
     return {
     }
@@ -36,8 +37,11 @@ export default {
               <div v-for="(cell, index) in headerConfig" :key="index">
                 <td class="td">
                   <slot
-                  :name="`cell-${cell.key}`"
-                  :row="item">{{ item[prop] }}</slot>
+                    :name="`cell-${cell.key}`"
+                    :row="item"
+                  >
+                    {{ item[prop] }}
+                  </slot>
                 </td>
               </div>
             </tr>

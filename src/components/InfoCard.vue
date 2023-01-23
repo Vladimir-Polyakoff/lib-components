@@ -26,7 +26,12 @@ export default {
     <CirclePoint class="circle" :point="number"></CirclePoint>
     <div class="title" v-if="card.title" v-html="card.title"></div>
     <div class="description" v-if="card.description" >{{ card.description }}</div>
-    <button v-if="card.button" :disabled="card.button.disabled">{{ card.button.title }}</button>
+    <button
+      v-if="card.button"
+      :disabled="card.button.disabled"
+    >
+      {{ card.button.title }}
+    </button>
   </div>
 </template>
 

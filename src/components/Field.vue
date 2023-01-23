@@ -29,6 +29,7 @@ export default {
       required: true
     }
   },
+
   computed: {
     model: {
       get() {
@@ -40,6 +41,7 @@ export default {
         this.$emit('input', value);
       },
     },
+
     styles () {
       // пришли динамические стили массивом сложить в строку
       let res = ''
@@ -51,6 +53,7 @@ export default {
       return res
     }
   },
+
   methods: {
     fieldFocus () {
       this.$refs.Field.focus()
@@ -61,15 +64,14 @@ export default {
 
 <template>
   <div class="field">
-    <!-- model это computed -->
-    <!-- ref, обратиться к элементу в js повесил фокус -->
-    <!-- пропсы всегда принимаются ДИНМАИЧЕСКИ, отправлять можно и статику, но не массив(вернкет [строчку со скобками]) -->
-    <label :for="id"
-    >{{ label }}
-    </label>
-    <input ref="Field" :id="id" :type="type" v-model="model"
-    :style="styles"
-    :placeholder="placeholder"
+    <label :for="id">{{ label }}</label>
+    <input
+      ref="Field"
+      :id="id"
+      :type="type"
+      v-model="model"
+      :style="styles"
+      :placeholder="placeholder"
     >
   </div>
 </template>

@@ -22,11 +22,13 @@ export default {
       default: 'title'
     }
   },
+
   data () {
     return {
       showList: false
     }
   },
+
   computed: {
     selectedValue () {
       if (typeof this.selected === 'object') {
@@ -77,14 +79,15 @@ export default {
 
 <template>
   <div class="dropdown">
-    <div class="dropdown__title"
-    @click.stop="showList = !showList"
-  >{{ selectedValue }}</div>
+    <div class="dropdown__title" @click.stop="showList = !showList"
+    >{{ selectedValue }}</div>
 
-    <div class="dropdown__list"
-    v-if="showList">
-      <div class="dropdown__item" v-for="item in dropdownList" :key="item[trackBy]"
-      @click="change(item)">
+    <div class="dropdown__list" v-if="showList">
+      <div class="dropdown__item"
+        v-for="item in dropdownList"
+        :key="item[trackBy]"
+        @click="change(item)"
+      >
         {{ item[title] }}
       </div>
     </div>

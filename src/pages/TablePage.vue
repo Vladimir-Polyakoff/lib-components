@@ -6,6 +6,7 @@ export default {
   components: {
     Table
   },
+
   data () {
     return {
       headerConfig: [
@@ -54,8 +55,8 @@ export default {
 <template>
   <div>
     <Table
-    :headerConfig="headerConfig"
-    :data="list"
+      :headerConfig="headerConfig"
+      :data="list"
     >
       <template v-slot:cell-name="{ row: user }">
         <span class="name">{{ user.name }}</span>

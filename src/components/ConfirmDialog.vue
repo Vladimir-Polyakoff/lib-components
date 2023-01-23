@@ -11,6 +11,7 @@ export default {
       required: true
     }
   },
+
   data () {
     return {
       showDialog: false
@@ -29,6 +30,7 @@ export default {
     hide () {
       this.showDialog = false
     },
+
     show () {
       this.$nextTick(() => this.showDialog = true)
     }

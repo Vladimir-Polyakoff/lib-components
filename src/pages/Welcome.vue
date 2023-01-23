@@ -6,6 +6,7 @@ export default {
   components: {
     InfoCard
   },
+
   data () {
     return {
       title: 'title',
@@ -51,10 +52,10 @@ export default {
     <div class="description">Финансовый учет - это удобный инструмент, который поможет контролировать движение средств и увеличить прибыль. Вся статистика по финансовым операцияи отражена в виде нагядных отчетов</div>
     <div class="list">
       <InfoCard
-      v-for="(item, index) in list"
-      :key="index"
-      :number="index + 1"
-      :card="item"
+        v-for="(item, index) in list"
+        :key="index"
+        :number="index + 1"
+        :card="item"
       />
     </div>
   </div>

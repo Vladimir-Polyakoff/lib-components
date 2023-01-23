@@ -6,6 +6,7 @@ export default {
   components: {
     Field
   },
+
   data () {
     return {
       inputValue: '',
@@ -26,12 +27,14 @@ export default {
   mounted () {
     this.$refs.Field.fieldFocus()
   },
+
   methods: {
     setFieldValue (value, index) {
       // для inputValue : this.$set(this, 'inputValue', value)  если одна вложеность
       //(где) обьект в котором менял знач, (что)потом СТРОЧКОЙ поле которое хочу поменять, (на что) меняю значение
       this.$set(this.inputs[index], 'value', value)
     },
+
     addInput () {
       this.inputs.push({
         id: this.inputs.length + 1,
@@ -47,20 +50,20 @@ export default {
   <div id="fields">
     <div class="input-value">{{ inputValue }}</div>
     <Field
-    ref="Field"
-    v-model="inputValue"
-    :additionalStyles="['color:blue;', 'font-size: 20px;']"
-    placeholder="placeholder"
-    id="Id"
-    label="label"
+      ref="Field"
+      v-model="inputValue"
+      :additionalStyles="['color:blue;', 'font-size: 20px;']"
+      placeholder="placeholder"
+      id="Id"
+      label="label"
     />
     <hr>
     <Field
-    v-for="(input, index) in inputs" :key="input.id"
-    :id="input.id"
-    :label="input.label"
-    :value="input.value"
-    @input="value => setFieldValue(value, index)"
+      v-for="(input, index) in inputs" :key="input.id"
+      :id="input.id"
+      :label="input.label"
+      :value="input.value"
+      @input="value => setFieldValue(value, index)"
     />
     <button @click="addInput">Добавит input</button>
   </div>

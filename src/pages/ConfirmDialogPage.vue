@@ -6,6 +6,7 @@ export default {
   components: {
     'confirm-dialog': ConfirmDialog
   },
+
   data () {
     return {
       title: 'Use Googles location service?',

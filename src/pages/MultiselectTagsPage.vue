@@ -6,6 +6,7 @@ export default {
   components: {
     MultiselectTags
   },
+
   data () {
     return {
 
@@ -27,6 +28,7 @@ export default {
       list2: ['Name', 'Username', 'Email'],
     }
   },
+
   methods: {
     // deleteSelected (deleted) {
     //   this.selectedList = this.selectedList.filter(({ id }) => id !== deleted.id)
