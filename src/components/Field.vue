@@ -1,17 +1,3 @@
-<template>
-  <div class="field">
-    <!-- model это computed -->
-    <!-- ref, обратиться к элементу в js повесил фокус -->
-    <!-- пропсы всегда принимаются ДИНМАИЧЕСКИ, отправлять можно и статику, но не массив(вернкет [строчку со скобками]) -->
-    <label :for="id"
-    >{{ label }}
-    </label>
-    <input ref="Field" :id="id" :type="type" v-model="model"
-    :style="styles"
-    :placeholder="placeholder"
-    >
-  </div>
-</template>
 
 <script>
 export default {
@@ -72,6 +58,21 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div class="field">
+    <!-- model это computed -->
+    <!-- ref, обратиться к элементу в js повесил фокус -->
+    <!-- пропсы всегда принимаются ДИНМАИЧЕСКИ, отправлять можно и статику, но не массив(вернкет [строчку со скобками]) -->
+    <label :for="id"
+    >{{ label }}
+    </label>
+    <input ref="Field" :id="id" :type="type" v-model="model"
+    :style="styles"
+    :placeholder="placeholder"
+    >
+  </div>
+</template>
 
 <style scoped>
   input {

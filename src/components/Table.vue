@@ -19,6 +19,36 @@ export default {
 }
 </script>
 
+<template>
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <div v-for="({ title, key }) in headerConfig" :key="key">
+            <th :style="!title && 'background: #ccc'">{{ title }}</th>
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+        <div v-if="data.length">
+          <div v-for="(item, key) in data" :key="key">
+            <tr>
+              <div v-for="(cell, index) in headerConfig" :key="index">
+                <td class="td">
+                  <slot
+                  :name="`cell-${cell.key}`"
+                  :row="item">{{ item[prop] }}</slot>
+                </td>
+              </div>
+            </tr>
+          </div>
+        </div>
+        <tr v-else></tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
 <style scoped>
   .table {
     position: relative;
@@ -67,33 +97,3 @@ export default {
     color: blue;
   }
 </style>
-
-<template>
-  <div class="table">
-    <table>
-      <thead>
-        <tr>
-          <div v-for="({ title, key }) in headerConfig" :key="key">
-            <th :style="!title && 'background: #ccc'">{{ title }}</th>
-          </div>
-        </tr>
-      </thead>
-      <tbody>
-        <div v-if="data.length">
-          <div v-for="(item, key) in data" :key="key">
-            <tr>
-              <div v-for="(cell, index) in headerConfig" :key="index">
-                <td class="td">
-                  <slot
-                  :name="`cell-${cell.key}`"
-                  :row="item">{{ item[prop] }}</slot>
-                </td>
-              </div>
-            </tr>
-          </div>
-        </div>
-        <tr v-else></tr>
-      </tbody>
-    </table>
-  </div>
-</template>

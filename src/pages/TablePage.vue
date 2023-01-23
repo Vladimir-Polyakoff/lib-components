@@ -51,14 +51,6 @@ export default {
 }
 </script>
 
-
-<style scoped>
-  .name {
-    display: block;
-    text-align: left;
-  }
-</style>
-
 <template>
   <div>
     <Table
@@ -83,3 +75,10 @@ export default {
     </Table>
   </div>
 </template>
+
+<style scoped>
+  .name {
+    display: block;
+    text-align: left;
+  }
+</style>

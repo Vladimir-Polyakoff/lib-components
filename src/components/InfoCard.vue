@@ -21,6 +21,15 @@ export default {
 }
 </script>
 
+<template>
+  <div class="card">
+    <CirclePoint class="circle" :point="number"></CirclePoint>
+    <div class="title" v-if="card.title" v-html="card.title"></div>
+    <div class="description" v-if="card.description" >{{ card.description }}</div>
+    <button v-if="card.button" :disabled="card.button.disabled">{{ card.button.title }}</button>
+  </div>
+</template>
+
 <style scoped lang="scss">
   .card {
     position: relative;
@@ -74,12 +83,3 @@ export default {
     }
   }
 </style>
-
-<template>
-  <div class="card">
-    <CirclePoint class="circle" :point="number"></CirclePoint>
-    <div class="title" v-if="card.title" v-html="card.title"></div>
-    <div class="description" v-if="card.description" >{{ card.description }}</div>
-    <button v-if="card.button" :disabled="card.button.disabled">{{ card.button.title }}</button>
-  </div>
-</template>

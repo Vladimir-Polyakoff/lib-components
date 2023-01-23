@@ -42,27 +42,6 @@ export default {
   }
 }
 </script>
-<style>
-#fields {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-.input-value {
-  font-size: 24px;
-  color: green;
-}
-button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  color: white;
-  background: green;
-  border-radius: 10px;
-  border: none;
-}
-</style>
 
 <template>
   <div id="fields">
@@ -86,3 +65,25 @@ button {
     <button @click="addInput">Добавит input</button>
   </div>
 </template>
+
+<style>
+#fields {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+.input-value {
+  font-size: 24px;
+  color: green;
+}
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: white;
+  background: green;
+  border-radius: 10px;
+  border: none;
+}
+</style>

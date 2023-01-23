@@ -45,6 +45,21 @@ export default {
 }
 </script>
 
+<template>
+  <div class="welcome">
+    <div class="title">Как работать c модулем</div>
+    <div class="description">Финансовый учет - это удобный инструмент, который поможет контролировать движение средств и увеличить прибыль. Вся статистика по финансовым операцияи отражена в виде нагядных отчетов</div>
+    <div class="list">
+      <InfoCard
+      v-for="(item, index) in list"
+      :key="index"
+      :number="index + 1"
+      :card="item"
+      />
+    </div>
+  </div>
+</template>
+
 <style scoped>
   .welcome {
     padding: 16px;
@@ -70,18 +85,3 @@ export default {
     color: rgba(0, 0, 0, 0.606);
   }
 </style>
-
-<template>
-  <div class="welcome">
-    <div class="title">Как работать c модулем</div>
-    <div class="description">Финансовый учет - это удобный инструмент, который поможет контролировать движение средств и увеличить прибыль. Вся статистика по финансовым операцияи отражена в виде нагядных отчетов</div>
-    <div class="list">
-      <InfoCard
-      v-for="(item, index) in list"
-      :key="index"
-      :number="index + 1"
-      :card="item"
-      />
-    </div>
-  </div>
-</template>

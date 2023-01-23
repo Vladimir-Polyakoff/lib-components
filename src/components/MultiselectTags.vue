@@ -24,7 +24,14 @@ export default {
   },
   data () {
     return {
-      showList: false
+      showList: false,
+      newTag: ''
+    }
+  },
+
+  watch: {
+    showList (v) {
+      v && this.$nextTick(() => this.$refs.addTag.focus())
     }
   },
 
@@ -55,16 +62,67 @@ export default {
 
     isSelected (item) {
       return this.selectedList.includes(item)
+    },
+
+    addTag () {
+      if (!this.newTag) { return }
+
+      const newTag = {
+        [this.trackBy]: new Date().getTime(),
+        [this.title]: this.newTag
+      }
+
+      this.$emit('change', [...this.selectedList, newTag])
+
+      this.newTag = ''
+      
+      this.bodyClick()
     }
   }
 }
 </script>
+
+<template>
+  <div class="multiselect-tags">
+    <div class="multiselect-tags__title"
+    @click.stop="showList = !showList">
+      <div v-if="selectedList.length">
+        <span @click.stop v-for="selected in selectedList"
+        :key="selected[trackBy]">
+        {{ selected[title] }}
+        <span @click.stop="$emit('delete', selected)">+</span>
+        </span>
+      </div>
+      <input
+      ref="addTag"
+      v-model="newTag"
+      v-if="showList"
+      type="text"
+      placeholder="введите Tag"
+      @click.stop
+      @keypress.enter="addTag"
+      >
+    </div>
+
+    <div class="multiselect-tags__list"
+    v-if="showList">
+      <div class="multiselect-tags__item"
+      v-for="item in list"
+      :key="item[trackBy]"
+      :class="{'selected': isSelected(item) }"
+      @click="change(item)">
+      {{ item[title] }}
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
   .multiselect-tags {
     min-width: 170px;
     display: inline-block;
     margin: 0 auto;
+    width: 330px;
     &__list, &__title {
       border: 1px solid black;
       border-top:none;
@@ -72,10 +130,29 @@ export default {
       text-align: start;
       padding: 4px 20px;
     }
+    &__title {
+      min-height: 28px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+
+      div {
+        display: flex;
+        flex-wrap: wrap;
+        user-select: none;
+      }
+    }
+    input {
+      width: 100%;
+      border: none;
+      padding: 0px;
+      outline: none;
+    }
     &__title span {
-      padding: 4px;
+      padding:2px 4px;
       background-color: rgba(0, 0, 255, 0.15);
-      margin-right: 8px;
+      margin: 4px;
       span{
         background: transparent;
         transform: rotate(45deg);
@@ -131,29 +208,3 @@ export default {
     font-weight: 600;
   }
 </style>
-
-<template>
-  <div class="multiselect-tags">
-    <div class="multiselect-tags__title"
-    @click.stop="showList = !showList">
-    <div v-if="selectedList.length">
-      <span v-for="selected in selectedList"
-        :key="selected[trackBy]">
-        {{ selected[title] }}
-        <span @click.stop="$emit('delete', selected)">+</span>
-      </span>
-    </div>
-  </div>
-
-    <div class="multiselect-tags__list"
-    v-if="showList">
-      <div class="multiselect-tags__item"
-      v-for="item in list"
-      :key="item[trackBy]"
-      :class="{'selected': isSelected(item) }"
-      @click="change(item)">
-        {{ item[title] }}
-      </div>
-    </div>
-  </div>
-</template>

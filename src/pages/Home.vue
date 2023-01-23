@@ -4,6 +4,12 @@ export default {
 }
 </script>
 
+<template>
+  <div class="loader">
+    <h1>HOME</h1>
+  </div>
+</template>
+
 <style scoped>
   body {
     margin: 0;
@@ -53,9 +59,3 @@ export default {
     }
   }
 </style>
-
-<template>
-  <div class="loader">
-    <h1>HOME</h1>
-  </div>
-</template>

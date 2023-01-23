@@ -74,6 +74,23 @@ export default {
 }
 </script>
 
+
+<template>
+  <div class="dropdown">
+    <div class="dropdown__title"
+    @click.stop="showList = !showList"
+  >{{ selectedValue }}</div>
+
+    <div class="dropdown__list"
+    v-if="showList">
+      <div class="dropdown__item" v-for="item in dropdownList" :key="item[trackBy]"
+      @click="change(item)">
+        {{ item[title] }}
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped lang="scss">
   .dropdown {
     min-width: 170px;
@@ -110,19 +127,3 @@ export default {
   }
 
 </style>
-
-<template>
-  <div class="dropdown">
-    <div class="dropdown__title"
-    @click.stop="showList = !showList"
-  >{{ selectedValue }}</div>
-
-    <div class="dropdown__list"
-    v-if="showList">
-      <div class="dropdown__item" v-for="item in dropdownList" :key="item[trackBy]"
-      @click="change(item)">
-        {{ item[title] }}
-      </div>
-    </div>
-  </div>
-</template>

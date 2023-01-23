@@ -35,12 +35,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .dropdown {
-    margin:0 auto;
-  }
-</style>
-
 <template>
   <div>
     <div class="header">
@@ -70,3 +64,9 @@ export default {
     </div>
   </div>
 </template>
+
+<style scoped>
+  .dropdown {
+    margin:0 auto;
+  }
+</style>
