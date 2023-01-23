@@ -33,6 +33,16 @@ const routes = [
     path: '/multiselect-tags',
     name: 'multiselect-tags',
     component:() => import('@/pages/MultiselectTagsPage.vue')
+  },
+  {
+    path: '/confirm-dialog-page',
+    name: 'confirm-dialog-page',
+    component:() => import('@/pages/ConfirmDialogPage.vue')
+  },
+  {
+    path: '/prompt-page',
+    name: 'prompt-page',
+    component:() => import('@/pages/PromptPage.vue')
   }
 ]
 

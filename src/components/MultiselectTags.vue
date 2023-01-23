@@ -72,20 +72,31 @@ export default {
     isSelected (item) {
       return this.selectedList.includes(item)
     },
+    // V-MODEL
+    // addTag () {
+    //   if (!this.newTag) { return }
 
-    addTag () {
-      if (!this.newTag) { return }
+    //   this.$emit('change', [...this.selectedList, this.isChildTypeObject 
+    //     ? {
+    //         [this.trackBy]: new Date().getTime(),
+    //         [this.title]: this.newTag
+    //       }
+    //     : this.newTag]
+    //   )
 
+    //   this.newTag = ''
+
+    //   this.bodyClick()
+      
+    // }
+    addTag (value) {
       this.$emit('change', [...this.selectedList, this.isChildTypeObject 
         ? {
             [this.trackBy]: new Date().getTime(),
-            [this.title]: this.newTag
+            [this.title]: value
           }
-        : this.newTag]
+        : value]
       )
-
-      this.newTag = ''
-
       this.bodyClick()
       
     }
@@ -104,14 +115,23 @@ export default {
         <span @click.stop="$emit('delete', selected)">+</span>
         </span>
       </div>
-      <input
+      <!-- V-MODEL -->
+      <!-- <input
       ref="addTag"
-      v-model="newTag"
+      v-model.trim="newTag"
       v-if="showList"
       type="text"
       placeholder="введите Tag"
       @click.stop
       @keypress.enter="addTag"
+      > -->
+      <input
+      ref="addTag"
+      v-if="showList"
+      type="text"
+      placeholder="введите Tag"
+      @click.stop
+      @keypress.enter="$event.target.value.trim() && addTag($event.target.value.trim())"
       >
     </div>
 
