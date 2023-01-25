@@ -35,9 +35,8 @@
 
 <template>
   <div>
-    <pre>{{ showPro }}</pre>
     <div class="prompt" v-if="showPro">
-      <p class="prompt__question">{{ question }}</p>
+      <p class="prompt__question">ответьте на вопрос : {{ question }}</p>
       <input @click.stop type="text" v-model="answer">
       <div class="actions">
         <button @click="hide">отмена</button>
@@ -59,8 +58,10 @@
     width: 400px;
     background: #fff;
       &__question {
-        font-size: 12px;
-        color: rgb(131, 130, 130);
+        margin-top: 16px;
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(59, 169, 39);
         padding-right: 10px;
         color: black;
       }
@@ -69,6 +70,7 @@
       margin-top: 30px;
       text-align: end;
       button {
+        padding: 10px;
         font-size: 12px;
         text-transform: uppercase;
         color: green;

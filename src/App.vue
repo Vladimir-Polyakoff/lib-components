@@ -1,19 +1,24 @@
 <template>
   <div id="app">
-    <div class="menu">
+    <!-- <div class="menu">
       <router-link v-for="({ path, title }) in pagesList"
       :key='path'
       :to="path">{{ title }}</router-link>
-    </div>
+    </div> -->
+    <side-bar
+    :list="pagesList"
+    ></side-bar>
 
-    <router-view/>
+    <router-view style="text-align: center;"/>
   </div>
 </template>
 
 
 <script>
+import SideBar from './components/SideBar.vue'
 
 export default {
+  components: { SideBar },
   data () {
     return {
       pagesList: [
@@ -61,6 +66,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  display: flex;
 }
 body {
   margin: 0;

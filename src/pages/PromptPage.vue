@@ -31,6 +31,14 @@ export default {
         return
       }
       this.$refs.Prompt.show(this.question)
+    },
+    setAnswer (answer) {
+      if(answer) {
+        this.result = `Ваш ответ на вопрос ${this.question} : ${ answer }`
+
+        this.question = ''
+
+      }
     }
   }
 }
@@ -40,7 +48,7 @@ export default {
   <div>
     <prompt
       ref="Prompt"
-      @responce="responce => result = responce"
+      @responce="setAnswer"
     ></prompt>
     <div
       v-if="error"
@@ -50,8 +58,24 @@ export default {
     </div>
     <div>
       <input type="text" v-model="question">
-      <div>{{ result }}</div>
+      <div
+        v-if="result"
+        class="result"
+        > {{ result }}
+      </div>
     </div>
     <button @click="send">отправить вопрос</button>
   </div>
 </template>
+
+<style scoped>
+  button {
+    margin-top:20px;
+  }
+
+  .result {
+    margin-top: 10px ;
+    font-size: 20px;
+    font-weight: 600;
+  }
+</style>
