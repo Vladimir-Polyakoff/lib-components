@@ -14,7 +14,7 @@ export default {
 
   data () {
     return {
-      showDialog: false
+      showDialog: true
     }
   },
 
@@ -68,6 +68,7 @@ export default {
   .wrapper {
     position: fixed;
     top: 0;
+    right: 0;
     z-index: 1111;
     width: 100vw;
     height: 100vh;

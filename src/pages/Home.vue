@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-<div>
+<div class="wrapper">
   <div class="loader">
     <h1>HOME</h1>
   </div>
@@ -55,6 +55,9 @@ export default {
     padding: 0;
     background: #262626;
     font-family: Arial;
+  }
+  .wrapper {
+    width: 100%;
   }
   .loader {
     position: absolute;

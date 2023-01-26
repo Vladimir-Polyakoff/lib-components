@@ -67,7 +67,7 @@ export default {
     font-family: sans-serif;
     text-align: center;
     border-collapse:collapse;
-    /* border-spacing: 5px; */
+    border-spacing: 5px;
     background: rgba(204, 204, 204, 0.3);
     color: #656565;
     display: flex;
@@ -76,6 +76,7 @@ export default {
   }
   tr {
     display: flex;
+    justify-content: flex-start;
   }
   th, td:first-child {
     background: #afcde7;
@@ -86,8 +87,8 @@ export default {
     border-style: solid;
     border-width: 0 1px 1px 0;
     border-color:white;
-    width: 100px;
     height: 22px;
+    align-self: flex-start;
   }
   td {
     background: #d8e6f3;

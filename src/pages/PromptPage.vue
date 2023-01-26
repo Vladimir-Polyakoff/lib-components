@@ -69,8 +69,18 @@ export default {
 </template>
 
 <style scoped>
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  input {
+
+    margin-top:360px;
+  }
   button {
-    margin-top:20px;
+    margin-top:30px;
   }
 
   .result {

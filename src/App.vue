@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <!-- <div class="menu">
-      <router-link v-for="({ path, title }) in pagesList"
-      :key='path'
-      :to="path">{{ title }}</router-link>
-    </div> -->
     <side-bar
     :list="pagesList"
+    @collapse="value = isSideBarCollapsed = value"
     ></side-bar>
 
-    <router-view style="text-align: center;"/>
+    <router-view style="text-align: center;" :style="'padding-left:' + isSideBarCollapsed ? '70px' : '180px'"/>
   </div>
 </template>
 
@@ -24,37 +20,46 @@ export default {
       pagesList: [
         {
           title: 'Главная',
-          path: '/'
+          path: '/',
+          iconClass: 'fa fa-home'
         },
         {
           title: 'Выпадашка',
-          path: '/dropdown-page'
+          path: '/dropdown-page',
+          iconClass: 'fa fa-caret-square-o-down'
         },
         {
           title: 'Приветствие',
-          path: '/welcome'
+          path: '/welcome',
+          iconClass: 'fa fa-hand-peace-o'
         },
         {
           title: 'Инпуты',
-          path: '/fields'
+          path: '/fields',
+          iconClass: 'fa fa-search'
         },
         {
           title: 'Таблица',
-          path: '/table-page'
+          path: '/table-page',
+          iconClass: 'fa fa-table'
         },
         {
           title: 'Мультиселект Теги',
-          path: '/multiselect-tags'
+          path: '/multiselect-tags',
+          iconClass: 'fa fa-music'
         },
         {
           title: 'Диалог',
-          path: '/confirm-dialog-page'
+          path: '/confirm-dialog-page',
+          iconClass: 'fa fa-users'
         },
         {
           title: 'Промпт',
-          path: '/prompt-page'
+          path: '/prompt-page',
+          iconClass: 'fa fa-terminal'
         }
-      ]
+      ],
+      isSideBarCollapsed: false 
     }
   }
 }
@@ -67,11 +72,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow-y:hidden ;
   box-sizing: border-box;
+  width: 100%;
 }
 .menu {
   display: flex;
