@@ -1,9 +1,3 @@
-<template>
-  <div>
-    {{ message }}
-  </div>
-</template>
-
 <script>
 export default {
   name: 'PopupMessage',
@@ -15,6 +9,12 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div>
+    {{ message }}
+  </div>
+</template>
 
 <style scoped>
   div {

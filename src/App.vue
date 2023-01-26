@@ -1,15 +1,3 @@
-<template>
-  <div id="app">
-    <side-bar
-    :list="pagesList"
-    @collapse="value = isSideBarCollapsed = value"
-    ></side-bar>
-
-    <router-view style="text-align: center;" :style="'padding-left:' + isSideBarCollapsed ? '70px' : '180px'"/>
-  </div>
-</template>
-
-
 <script>
 import SideBar from './components/SideBar.vue'
 
@@ -64,6 +52,18 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div id="app">
+    <side-bar
+    :list="pagesList"
+    @collapse="value = isSideBarCollapsed = value"
+    ></side-bar>
+
+    <router-view style="text-align: center;" :style="'padding-left:' + isSideBarCollapsed ? '70px' : '180px'"/>
+  </div>
+</template>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
