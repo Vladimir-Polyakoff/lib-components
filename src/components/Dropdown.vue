@@ -3,14 +3,8 @@
 export default {
   name: 'TheDropdown',
   props: {
-    list: {
-      type: Array,
-      required: true
-    },
-    selected: {
-      type: [Object, String],
-      required: true
-    },
+    list: { type: Array, required: true },
+    selected: { type: [Object, String], required: true },
     trackBy: {
       type: String,
       required: false,
@@ -75,7 +69,6 @@ export default {
   }
 }
 </script>
-
 
 <template>
   <div class="dropdown">
