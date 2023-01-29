@@ -31,7 +31,6 @@ export default {
   methods: {
     setFieldValue (value, index) {
       // для inputValue : this.$set(this, 'inputValue', value)  если одна вложеность
-      //(где) обьект в котором менял знач, (что)потом СТРОЧКОЙ поле которое хочу поменять, (на что) меняю значение
       this.$set(this.inputs[index], 'value', value)
     },
 
@@ -53,9 +52,9 @@ export default {
       ref="Field"
       v-model="inputValue"
       :additionalStyles="['color:blue;', 'font-size: 20px;']"
-      placeholder="placeholder"
+      placeholder="Введите слово"
       id="Id"
-      label="label"
+      label="Какой-то лэбл"
     />
     <hr>
     <Field

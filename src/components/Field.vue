@@ -3,9 +3,7 @@
 export default {
   name: 'TheField',
   props: {
-    value: {
-      default: ''
-    },
+    value: { default: '' },
     type: {
       type: String,
       required: false,
@@ -16,28 +14,17 @@ export default {
       required: false,
       default: () => ([])
     },
-    placeholder: {
-      type: String,
-      required: false
-    },
-    label: {
-      type: String,
-      required: false
-    },
-    id: {
-      type: [String, Number],
-      required: true
-    }
+    placeholder: { type: String, required: false },
+    id: { type: [String, Number], required: true },
+    label: { type: String, required: false }
   },
 
   computed: {
     model: {
       get() {
-        // берет из props value
         return this.value
       },
       set(value) {
-        // прокинуть наверх
         this.$emit('input', value);
       },
     },
