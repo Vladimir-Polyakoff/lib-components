@@ -1,9 +1,3 @@
-<template>
-  <div class="circle">
-    <div class="point">{{ point }}</div>
-  </div>    
-</template>
-
 <script>
 export default {
   name: "CirclePoint",
@@ -17,8 +11,14 @@ export default {
 }
 </script>
 
+<template>
+  <div class="circle">
+    <div class="point">{{ point }}</div>
+  </div>    
+</template>
+
 <style scoped>
-  .circle{   
+  .circle {   
     width: 50px;
     height: 50px;
     border: 1px solid green;

@@ -33,7 +33,7 @@ export default {
       ],
       list: [
         {
-          name: 'Alehsa',
+          name: 'Alexey',
           html: true,
           css: true,
           js: true,
@@ -44,7 +44,7 @@ export default {
           html: true,
           css: true,
           js: true,
-          vue: false
+          vue: true
         }
       ]
     }
@@ -81,5 +81,6 @@ export default {
   .name {
     display: block;
     text-align: left;
+    margin-left: -33px ;
   }
 </style>

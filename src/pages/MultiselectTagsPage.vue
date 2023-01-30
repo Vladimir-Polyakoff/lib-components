@@ -12,18 +12,9 @@ export default {
 
       selectedList: [],
       list: [
-        {
-          id: 1,
-          title: 'JavaScript'
-        },
-        {
-          id: 2,
-          title: 'Vue js'
-        },
-        {
-          id: 3,
-          title: 'html/css'
-        }
+        { id: 1, title: 'JavaScript' },
+        { id: 2, title: 'Vue js' },
+        { id: 3, title: 'html/css' }
       ],
       list2: ['Name', 'Username', 'Email'],
     }

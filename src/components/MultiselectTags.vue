@@ -3,14 +3,8 @@
 export default {
   name: 'MultiselectTags',
   props: {
-    list: {
-      type: Array,
-      required: true
-    },
-    selectedList: {
-      type: Array,
-      required: true
-    },
+    list: { type: Array, required: true },
+    selectedList: { type: Array, required: true },
     trackBy: {
       type: String,
       required: false,

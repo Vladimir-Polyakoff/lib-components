@@ -13,7 +13,7 @@ export default {
       list: [
         { id: 0, title: 'all' },
         { id: 1, title: 'Name' },
-        { id: 2, title: 'Username'},
+        { id: 2, title: 'Username' },
         { id: 3, title: 'Email' }
       ],
       list2: ['all', 'Name', 'Username', 'Email'],
@@ -57,16 +57,3 @@ export default {
     margin:0 auto;
   }
 </style>
-
-<script>
-export default {
-  data: {
-    selected3: {},
-    list3: [ 
-      {id:0, title: 'new1'},
-      {id:1, title: 'new2'},
-      {id:2, title: 'new3'}
-    ]
-  }
-}
-</script>

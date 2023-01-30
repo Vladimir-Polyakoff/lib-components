@@ -9,8 +9,8 @@ export default {
 
   data () {
     return {
-      title: 'title',
-      description: 'description',
+      // title: 'title',
+      // description: 'description',
       list: [
         {
           title: 'Подключите банк',

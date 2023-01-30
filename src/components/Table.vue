@@ -2,20 +2,10 @@
 
 export default {
   name: 'TheTable',
-    props: {
-      headerConfig: {
-        type: Array,
-        required: true
-      },
-      data: {
-        type: Array,
-        required: true
-      }
-    },
 
-  data () {
-    return {
-    }
+  props: {
+    headerConfig: { type: Array, required: true },
+    data: { type: Array, required: true }
   }
 }
 </script>
@@ -57,13 +47,9 @@ export default {
   .table {
     position: relative;
     width: 100%;
-    height: 100%;
-    top: 50%;
   }
   table {
-    position: absolute;
-    inset: 0;
-    margin: auto;
+    margin-top: 300px;
     font-family: sans-serif;
     text-align: center;
     border-collapse:collapse;
@@ -72,13 +58,15 @@ export default {
     color: #656565;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    background: #afcde7;
   }
   tr {
     display: flex;
     justify-content: flex-start;
+    background: #afcde7;
   }
-  th, td:first-child {
+  th, td {
     background: #afcde7;
     color:white;
     padding: 20px 40px;
@@ -88,6 +76,7 @@ export default {
     border-width: 0 1px 1px 0;
     border-color:white;
     height: 22px;
+    width: 50px;
     align-self: flex-start;
   }
   td {
@@ -99,7 +88,7 @@ export default {
     text-align: center;
   }
 
-  tbody div:first-child {
+  /* tbody div:first-child {
     color: blue;
-  }
+  } */
 </style>

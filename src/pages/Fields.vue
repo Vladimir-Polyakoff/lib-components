@@ -31,6 +31,7 @@ export default {
   methods: {
     setFieldValue (value, index) {
       // для inputValue : this.$set(this, 'inputValue', value)  если одна вложеность
+      console.log(this.inputs[index])
       this.$set(this.inputs[index], 'value', value)
     },
 
@@ -60,8 +61,8 @@ export default {
     <Field
       v-for="(input, index) in inputs" :key="input.id"
       :id="input.id"
-      :label="input.label"
       :value="input.value"
+      :label="input.label"
       @input="value => setFieldValue(value, index)"
     />
     <button @click="addInput">Добавит input</button>

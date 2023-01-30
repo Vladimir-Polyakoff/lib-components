@@ -5,7 +5,7 @@ export default {
   props: {
     list: { type: Array, required: true },
     selected: { type: [Object, String], required: true },
-    trackBy: {
+    trackBy: { 
       type: String,
       required: false,
       default: 'id'
