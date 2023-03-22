@@ -14,7 +14,7 @@ export default {
 
   data () {
     return {
-      showDialog: true
+      showDialog: false
     }
   },
 
@@ -32,7 +32,11 @@ export default {
     },
 
     show () {
-      this.$nextTick(() => this.showDialog = true)
+      // this.$nextTick(() => this.showDialog = true) 
+      // перестал срабатывать 
+      setTimeout(() => {
+        this.showDialog = true
+      })
     }
   }
 }

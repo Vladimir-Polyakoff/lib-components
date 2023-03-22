@@ -39,8 +39,9 @@ export default {
 
 <style scoped>
   button {
-    position: relative;
-    top: 316px;
+    position: absolute;
+    top: 516px;
+    left: 750px;
     z-index: 121212;
     background: rgba(28, 28, 225, 0.585);
     color: white;

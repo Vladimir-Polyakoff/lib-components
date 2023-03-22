@@ -57,7 +57,7 @@ export default {
   <div id="app">
     <side-bar
     :list="pagesList"
-    @collapse="value = isSideBarCollapsed = value"
+    @collapse="value => isSideBarCollapsed = value"
     ></side-bar>
 
     <router-view style="text-align: center;" :style="'padding-left:' + isSideBarCollapsed ? '70px' : '180px'"/>

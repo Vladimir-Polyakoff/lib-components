@@ -30,7 +30,6 @@ export default {
                     :name="`cell-${cell.key}`"
                     :row="item"
                   >
-                    {{ item[prop] }}
                   </slot>
                 </td>
               </div>
